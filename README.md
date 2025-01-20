@@ -1,15 +1,11 @@
-# blake hourigan's Personal Website
+# blake hourigan's personal website
 
-## Description
-
-This repository contains the source code for my personal website. The website is built using HTML and CSS. The webpage was created to showcase my history, programming portfolio, and interests. 
-
-## Features
+## features
 
 - **home page**: Introduction and overview of my career thus far.
 - **projects**: A showcase of my projects, both complete and ongoing, that are worth mentioning.
 
-## Installation
+## installation
 
 To view the website locally:
 
@@ -23,11 +19,7 @@ To view the website locally:
 
 3. Open the `index.html` file in a web browser.
 
-## Usage
-
-Browse through the various sections of the website to learn more about me and my work.
-
-## License
+## license
 
 This project is open source and available under the [MIT License](LICENSE).
 
