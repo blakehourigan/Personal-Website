@@ -1,14 +1,13 @@
-# Blake Hourigan's Personal Website
+# blake hourigan's Personal Website
 
 ## Description
 
-This repository contains the source code for my personal website. The website is built using HTML and showcases my portfolio, skills, and interests. It's designed to be simple, efficient, and easy to navigate.
+This repository contains the source code for my personal website. The website is built using HTML and CSS. The webpage was created to showcase my history, programming portfolio, and interests. 
 
 ## Features
 
-- **Home Page**: Introduction and overview of my career thus far.
-- **Portfolio**: A showcase of my projects, both complete and ongoing, that are worth mentioning.
-- **Contact**: Information on how to get in touch with me, including social media links.
+- **home page**: Introduction and overview of my career thus far.
+- **projects**: A showcase of my projects, both complete and ongoing, that are worth mentioning.
 
 ## Installation
 
