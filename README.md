@@ -6,9 +6,8 @@ This repository contains the source code for my personal website. The website is
 
 ## Features
 
-- **Home Page**: Introduces visitors to the site with a brief welcome message.
-- **About Me**: A section detailing my background, education, and interests.
-- **Portfolio**: (under construction) A showcase of my projects, including descriptions and links to live demos or GitHub repositories.
+- **Home Page**: Introduction and overview of my career thus far.
+- **Portfolio**: A showcase of my projects, both complete and ongoing, that are worth mentioning.
 - **Contact**: Information on how to get in touch with me, including social media links.
 
 ## Installation
@@ -27,17 +26,12 @@ To view the website locally:
 
 ## Usage
 
-Browse through the various sections of the website to learn more about me and my work. The website is structured with straightforward navigation to ensure a user-friendly experience.
-
-## Contributing
-
-As this is a personal website, contributions are not actively sought. However, any suggestions or feedback are welcome. Please open an issue in the repository for any such contributions.
+Browse through the various sections of the website to learn more about me and my work.
 
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Acknowledgements
 
 
 
