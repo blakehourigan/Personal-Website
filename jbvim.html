@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JBVIM</title>
+        <link rel="icon" type="image/png" href="https://i.imgur.com/pUhgCjZ.png"/>
+        <link rel="stylesheet" type="text/css" href="styles.css"
+    </head>
+        <div class="nav-bar">
+            <p class="header-text">
+            <a href="index.html">home</a> // <a href = "https://drive.proton.me/urls/X4R1RZYD04#Nu06QbBgkd2b">resume</a> 
+            </p>
+        </div>
+
+        <!--begin single project details-->
+        <div >                                                                                                                                                                                                 </html>
+
+<!--begin project image-->
+<span> 
+    <a href=https://github.com/blakehourigan/jbvim target="_blank">
+        <img src="assets/jbvim-rust.gif" alt="github logo sourced from https://www.flaticon.com/free-icon/github-logo_25231" height="375" class="project-image">
+    </a> 
+</span> 
+
+<!-- text section of the project-->
+<div class=project-article >
+<div class="project-title">
+    <p>
+    <b><a href=https://github.com/blakehourigan/jbvim >JBVim</a></b>
+    </p>
+</div>
+    <div class="project-desc">
+        <!-- title section of the project-->
+        <!-- description section of the project-->
+        <p>
+        A Vim inspired terminal based text editor written in rust.
+        </p>
+        <p>
+        Source Code Available <a href=https://github.com/blakehourigan/jbvim>via Github</a>
+        </p>
+        <!-- status section of the project-->
+        <div class="project-status">
+            <p>
+            <b>STATUS:</b> Rust -> COMPLETE | C -> Now rewriting...
+            </p>
+        </div>
+    </div>
+
+    <!-- notable features of the project-->
+    <div >
+        <p>
+        <div><b>Why a Text Editor?</b></div> 
+        <p>
+        This project marks the first major non-academic project in my attempt to improve my programming skills before entering the software development 
+        industry full-time as a developer. I had not found much time during my time as a student to work on side projects that interested me as engineering coursework - 
+        mostly the calculus courses :( - had demanded much of my time up until my academic courses came to a close.
+        </p>
+
+        <p>
+        It was for this reason that I decided to search for projects, languages, and overall ideas in computing that would interest me and allow me to develop my skills as a programmer.
+        This, however, does not answer the question of why build a text editor?
+        </p>
+
+        <p>
+        In my search of finding advice and ideas of what to start building, I came across <a href=https://austinhenley.com/blog/challengingprojects.html>this article from Austin Henley,</a>
+        an assistant teaching professor at Carnegie Mellon University, which summarizes and recommends projects that every programmer should try at some point in their career. I found 
+        nearly every project on the list to be very fascinating, and decided to start at the top of the list and work my way forward to the more advanced projects.
+        </p>
+
+        <p>
+        Over the course of the last few years, I've become very interested in terminal based text editors. I started this journey with emacs and eventually found my way to neovim (btw),
+        which I find to be a joy to use for everything from writing academic papers in LaTeX to writing code in any of my favorite languages. Because this is the editor that I find the 
+        most interesting and have the most esperience with, I decided to use the ideas and features implemented in neovim as my starting point, and to call my editor <b>JBVim</b> which are my initials + Vim. Very good! Right?
+        </p> 
+
+        <div><b>Writing the First Iteration in the Rust Programming Language</b></div> 
+        <p>
+        Over the last year, I was introduced to the Rust programming language through various channels of software development information forums and figures online. 
+        After exploring it breifly via the freely available <a href=https://doc.rust-lang.org/book/>rust programming book</a>, I became very interested in the ideas of memory safety and 
+        the protection against memory related bugs and security vulnerabilities that the language can provide. 
+        </p>
+
+        <p>
+        What really fascinated me was the fact that in most cases rust can provide
+        these guarantees at no additonal runtime cost! These "zero-cost" abstractions carry forward to 
+        <a href=https://davide-ceschia.medium.com/zero-cost-abstractions-in-rust-unlocking-high-performance-and-expressiveness-75c1c0d27291>other parts of the language</a> as well in features
+        like iterators and generics. Features such as these  were sorely missed when this program was later re-written using the C programming language.
+        </p>
+
+        <p>
+        After using the language for some time, I kind of fell in love with cargo. Although I have thus far used only a fraction of its available features, I have come to appreciate 
+        the ease of use and quality-of-development enhancement that features like cargo run, build, and crate management provide during development. This appreciation was of course further deepened upon rewriting this program in 
+        C later. The ability to just specify a crate along with the desired version in a toml file, building your crate and it just being available in your project is kind of just awesome.
+        </p>
+
+        <p><b>Features of the Editor</b></p>
+        <p>
+        As has already been discused, this editor was based on the neovim terminal editor. However, neovim is incredibly feature rich and quite complex, at least in relation to this project. For the sake of time and 
+        sanity as a relatively inexperienced programmer, many sacrifices were made. This program is a very basic text editor. I tried to distill the core features that are must haves for 
+        an editor with Vim in it's name, without growing the scope of the project too much, so I could get to <a href=projects.html>other exciting projects</a> that piqued my interest.
+        The primary features of this editor along with the thought process behind making these decisions follows in the below paragraphs.
+        </p>
+
+        <p><b>Low-Level Terminal Manipulation</b></p>
+        Most of my early reseach into how to manipulate the terminal in Linux using the rust language directed me in the direction of existing creates like 
+        <a href=https://docs.rs/crossterm/latest/crossterm/>crossterm</a> and <a href=https://docs.rs/termion/latest/termion/>termion</a>. But I wasn't really interested in using a crate 
+        that would hide the inner-workings of this aspect of the program away from me. I didn't know how writing <b><i>anything</i></b>  to the terminal, moving around the terminal 
+        with arrows (or in the case of vim normal mode - j, k, h, l, etc), or drawing colors to the terminal <b><i>really</i></b> worked. So for that reason I wanted to limit the use 
+        of libraries, using them only where I felt it very necessary, and do those things in the program myself.
+        </p>
+
+        <p>
+        After some research, it became clear that with <a href=https://en.wikipedia.org/wiki/ANSI_escape_code#C0_control_codes>ANSI terminal escape codes</a>, it's actually quite easy 
+        to do almost everything in the terminal that I would want to do for the purposes of a simple text editor. In addition to the above wikipedia link, I found 
+        <a href=https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797>this gist</a> on github, listing most of the basic sequences needed for this project. These would allow 
+        for cursor movement, coloring the background and foreground, retrieving current cursor location, entering the alternate buffer, clearing the screen, and more.
+        </p>
+
+        <p>
+        However, none of those escape codes would be all that useful if I wasn't able to retrive input from the standard input and process it character-by-character. After
+        some more research, I found that what I needed was to enter <i>terminal raw mode</i>. Wikipedia explained raw mode to me 
+        <a href=https://en.wikipedia.org/wiki/Terminal_mode>here</a> like this: "In cooked mode data is preprocessed before being given to a program, 
+        while <b>raw mode</b> passes the data as-is to the program without interpreting any of the special characters." So, raw mode was what I needed, but how do we get there?
+        </p>
+
+        <p>
+        This stage is where the fact that I was in rust was kind of frustrating and annoying. The Linux kernel is of course written in C, along with GNU software and the GNU library, 
+        'glibc', where the termios library needed for terminal manipulation operations like entering raw mode reside. 
+        This meant that it was more difficult to interact with the terminal directly in rust in the way that I initially wanted to. Being relatively inexperienced, and at the 
+        time having a mindset that I wanted to be 'completely safe' as I was overexcited about the 'safe' aspect of rust, I didn't want to make unsafe direct calls to C in my rust code.
+        </p>
+
+        <p>
+        With this in mind I searched <a href=https://www.crates.io>crates.io</a> for another way to do this. I found here that there is a termios crate in rust that binds functions in 
+        C to (what I thought were) safe rust functions! So I decided to use this create to enter raw mode and went about solving that problem. While ultimatly I wasn't exactly correct
+        that the termios crate is 'safe' in the way that most rust code is, and any code that calls c code is unsafe according to rust,
+        it <i>is</i> more safe to use a years old stable public termios crate than to create bindings of my own, so I am still happy with this call.
+        </p>
+
+        <p>
+        After this crate was found, I could place the terminal into raw mode by disabling terminal attribute flags such as Echo, Canonical (cooked) mode, and more. 
+        This then allowed for more direct manipulation and processing of user input to the terminal via the standard input. 
+        Furthermore, it allowed for custom defined behavoior when certain key combinations were pressed. This then enabled the implementation of modal editing and conditional writing of
+        user input to the editor.
+        </p>
+
+        <p><b>Modal Editing</b></p>
+        <p>
+        So now we know how I got the ability to implement editor modes, but what did that really mean for this project? Vim and it's derivatives implement 4 primary modes. These include
+        <ul>
+            <li><b>Normal Mode</b> - This mode allows for the use of keybindings like h, j, k, l, b, $, and much much more to navigate the document that is being edited far more efficiently 
+                than editors that use just arrow keys, - or, worse - the mouse <i>(*shudder*)</i> to navigate the document. This is a must have feature for a Vim-like editing experience, and 
+                was therefore one that I decided to implement in this project, albeit in a more limited form.</li>
+            <li><b>Visual Mode</b> - In neovim, this mode allows you to highlight text with those same normal mode keybindings, and copy this highlighted text to your clipboard, 
+                paste it somewhere else, or just highlight and move that text under your cursor around the document. You can also probably do tons of things that I have no idea you can do, but these
+                are the core features. I decided that this feature wasn't of the utmost importance to me in a basic editor, and that it would proably take too much of my time to implement, 
+                so this feature was skipped on this iteration of the program. It was the last mode to be implemented, and, honestly I was ready to move on to a new project (or so I thought
+                anyway.)
+            </li>
+            <li><b>Insert Mode</b> - This mode was another must have feature, as this mode is the mode that allows a user to actually input text and modify a document. As such, this mode
+                was also implemented.
+            </li>
+            <li><b>Command Mode</b> - Similarly to the implementation of the normal mode, this mode was implemented, as you couldn't escape the program without it (not all that 
+                dissimilar to it's cousins), but in a much more limited form. In it's current implementation it only understands the commands 'w' and 'q' which allow the user to 
+                'write' their changes to the document, and 'quit' the editor, respectively.
+            </li>
+
+        </ul>
+
+        <p><b>The Gap Buffer</b></p>
+        The final major component of this project was my implementation of a <a href=https://en.wikipedia.org/wiki/Gap_buffer>Gap Buffer</a> data structure. The gap buffer was chosen as an alternative to both 
+        the <a href=https://en.wikipedia.org/wiki/Rope_(data_structure)>rope data structure</a> and <a href=https://en.wikipedia.org/wiki/Piece_table>the piece table</a> due to it's comparative simplicity. The piece table was interesting to me
+        because it is renowned for being easier to implement 'infinite undo' with, however the desired timetable pushed me toward the still-good-but-not-perfect gap buffer.
+        <figure >
+            <img src=assets/Gap-Buffer-1.png alt="Gap buffer illustration from https://www.geeksforgeeks.org/gap-buffer-data-structure/" width="75%">
+            <figcaption>Fig. 1 - Sourced from <a href=https://www.geeksforgeeks.org/gap-buffer-data-structure/">GeeksforGeeks.com</a>
+        </figure>
+        The gap buffer is a relatively simple data structure that allows for efficient insertion at localized regions in data. An example of software for which this data structure is extremely useful is... you guessed it! Text editors.
+        If you think about it, you really only ever insert in a document in one place (for a basic editor), and that place is where your cursor currently is. 
+        <figure >
+            <img src=assets/cursor-insertion.png alt="Gap buffer illustration from https://www.geeksforgeeks.org/gap-buffer-data-structure/" width="75%">
+            <figcaption>Fig. 2 - We only ever insert at the location in terminal that our cursor sits atop of.
+        </figure>
+
+            The reason that the gap buffer is so good at this is because a gap buffer allocates a pre-defined amount 
+            of characters that you can insert into it before needing to modify or grow that structure. Say for example we have a gap buffer with a starting size of 150 characters. Our buffer, as we can see in Fig. 1, when initialized,
+            begins at location zero. The buffer then shrinks in size as insertion occurs. So having inserted "hello, world!" which is 13 characters would leave us with 137 remaining characters in the gap. This is O(1) time because we 
+            knew exactly where we would 
+            insert by index, and didn't have to grow the buffer.
+        </p>
+
+        <p>
+        The only time when that a more expensive operation for insertion would occur is if we had already inserted 149 characters and attempt to insert another character. We know that our buffer initially had the capacity for 150 characters, 
+        so when we have 149 characters, the starting location for the gap is at 149 and the ending location for the gap is <i>also</i> at location 149. To solve this problem we need to grow the gap. In reality what this means is we need to create a 
+        new array that is larger than the old array by some arbitrary amount, and move the characters we had already inserted into the old array to the new array. This is a much more expensive operation as previous insertions because now we have to 
+        reserve the space for a new array, then iterate over every item in the old array and insert it into the new array. However, if you consider how long lines generally are for many applications, including programming applcations, something like 
+        150 characters is likely to be enough. If you were willing to be a little more generous with allocated memory and bump that number to 200 - 300 initial characters available before growth, the applications that would require more than that 
+        number of characters <i>per line</i> decreases more still.
+        </p>
+
+        <p>
+        So, inserting into the buffer is great, but what about deleting characters? We certainly need that ability as well. Luckily, this operation is perhaps even simpler than insertion. Depending on the chosen method for maintaining the location of
+        the start and end locations for the gap, you can either decrement the pointer or decrement the integer index value that you have used to keep tabs on the start of the gap. When you do this, you have marked the the previous location as 
+        writable and have effectively removed the character from the line.
+        </p>
+        <p>
+        But that's not all we need. We don't just edit documents in a linear fashion without jumping occasionally between lines or many characters forwards or backwards once we've spotted an error or thought of a better way to arrange that key 
+        phrase. We need to be able to slide the gap forwards and backwards so we can jump many spaces ahead and edit that text, without effecting previous text or text further down in the line. 
+        To do this, we implement operations to move the gap right or left. Let's look at the below example. (The brackets show the gap beginning and end respectively.)
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy [1 2 3 4 5 6]</b>         
+        </p>
+
+        <p>
+        We can see that the phrase isn't yet finished, and that we've made an error in the word 'quick'. First we'll finish off the phrase, then we'll fix our error. To finish the phrase, we'll enter the characters 'd', 'o', and 'g', '.' one after 
+        the other.
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy d[2 3 4 5 6]</b>         
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy do[3 4 5 6]</b>         
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy dog[4 5 6]</b>         
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy dog.[5 6]</b>         
+        </p>
+
+        <p>
+        Hopefully it's very clear what we've done here. Each new letter consumes a remaining slot in our buffer until we've entered our full string. Now, let's slide the gap left to go and fix our previous error.
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy dog[5 6].</b>         
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy do[5 6]g.</b>         
+        </p>
+
+        <p>
+        <b>The quivk brown fox jumped over the lazy d[5 6]og.</b>         
+        </p>
+
+        <p>
+        ...
+        </p>
+
+        <p>
+        <b>The quiv[5 6]k brown fox jumped over the lazy dog.</b>         
+        </p>
+
+        <p>
+        We've moved left by first taking the character prior to the tap (gap begin - 1), placing it at the gap end location, then moving the gap begin and gap end left by one to maintain a gap of the same size. Now we can delete the character placed
+        in 'quick' and fix our error.
+        </p>
+
+        <p>
+        <b>The qui[4 5 6]k brown fox jumped over the lazy dog.</b>         
+        </p>
+
+        <p>
+        <b>The quic[5 6]k brown fox jumped over the lazy dog.</b>         
+        </p>
+
+        <p><b>What did I Screw Up?</b></p>
+        <p>
+        Phew... Now we've seen all of the basic operations of the gap buffer. While writing this article, partly due to my experience with this structure now and partly due to the fact that the ideas behind the gap buffer <i>are</i> very simple, 
+        these ideas seem incredibly easy to grasp. However, the implementation was quite a bit more frustrating and messy. It took me much longer than expected to get all of the functionality I was searching for in my text editor program for a 
+        variety of reasons. Maybe the biggest time suck was having to re-implement my method of storing many lines in a gap buffer. I initially just stuck every character in the entire document into one buffer, which is great! Until it's not! 
+        Insertion and moving left and right within a line are very easy and fast as expected, but moving lines... well... that's not so easy. You've now got to find newline characters by iterating through the line to find the next line, and I 
+        really just never quite got that working right.
+        </p>
+
+        <p>
+        A better way is a nested gap buffer structure. Which conceptually just makes <b>so much more</b> sense, but comes with additional challenges in its implementation as well. However, the experience of using a nested gap structure is 
+        <b>infinitely</b> easier than the previous implementation.
+        </p>
+
+        <p>
+        Beyond my screw ups with the gap buffer, and general challenges with being a novice programmer, I think I kind of messed up starting with rust. While I had a pretty good experience with it, there were some frustrations with not being able to
+        manipulate things exactly the way that I wanted to with pointers. I felt a bit constrained (which is likely the point and would be fine with experience) without being able to use pointers where I wanted them - namely inside of structs to
+        point at data within that struct - but also I just felt frustrated when I couldn't do things because the borrow checker would yell at me for something and <b>I COULDN'T TELL WHY STOP YELLING AT ME</b>. Furthermore, as mentioned earlier, 
+        everything in sight in Linux is C, all of it. And I think I'd just be able to get deeper and mess with whatever I wanted to if I was doing this project in C. And so that is exactly what I did.
+        </p>
+
+        <p>
+        I took the experience of writing JBVim in rust, and just transitioned to C. And I have to say, while many things have been more complicated because you do not have nicities like iterators or generics, and sometimes error messages just are
+        hot helpful at all, it is just so simple. It just does what you tell it and not much more, and that's really a beautiful thing. I love messing with whatever I want to, looking at docs and not having to translate them to rust, using 
+        libraries like termios in the native lanugage, and the barebones, simple nature of what is available to me. There's not a ton to know about C syntax and for this moment, I love that. I love that I get to learn more about and 
+        understand the C libraries that make make things like the terminal work and allow for programmer interaction. My long term goal is to take this understanding and get deeper into things like the Linux kernel and embedded programming to 
+        understand how these big complicated but unbelievably reliable pieces of software work. It's mind boggling and I want to know more.
+        </p>
+
+
+        <p><b>ok i'm done now</b></p>
+        <p>
+        Ok, I feel that this article was kind of a lot and perhaps all over the place in both content and tone, but I hope that if you're reading this you have some understanding of what I gained from this experience, and maybe learned a bit about 
+        the gap buffer or terminal manipulation in the process. Thanks for reading! More to come soon!
+        </p>
+
+        <h2>Blake</h2>
+
+    </div>
+</div>
+<hr>
+<div class="nav-bar">
+    <p class="header-text">
+    This page updated February 12, 2025.
+    </p>
+</div>
+<hr>
+        </div>
+        </body>
+
+        </html>

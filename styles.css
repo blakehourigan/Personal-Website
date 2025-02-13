@@ -126,3 +126,15 @@ li.feature{
     margin-bottom:10px;
 }
 
+.project-article{
+    margin-right:25%;
+    margin-left:25%;
+    line-height: 1.8;
+    font-size: .9em;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
